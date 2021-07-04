@@ -6,8 +6,9 @@ import { AppService } from './app.service';
 import { configService } from './config/config.service';
 import { BoardsModule } from './boards/boards.module';
 import { HttpErrorFilter } from './errors/http-error.filter';
-import { APP_FILTER } from '@nestjs/core';
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { TasksModule } from './tasks/tasks.module';
+import { LoggingInterceptor } from './logging/logging.interceptor';
 
 @Module({
   imports: [
@@ -21,6 +22,10 @@ import { TasksModule } from './tasks/tasks.module';
     {
       provide: APP_FILTER,
       useClass: HttpErrorFilter,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: LoggingInterceptor,
     },
     AppService,
   ],
