@@ -1,5 +1,3 @@
-import { Board } from '../../boards/entities/board.entity';
-import { User } from '../../users/entities/user.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -7,6 +5,8 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
+import { Board } from '../../boards/entities/board.entity';
+import { User } from '../../users/entities/user.entity';
 
 @Entity({ name: 'tasks' })
 export class Task {

@@ -26,7 +26,7 @@ class ConfigService {
 
   public isProduction() {
     const mode = this.getValue('MODE', false);
-    return mode != 'DEV';
+    return mode !== 'DEV';
   }
 
   public getTypeOrmConfig(): TypeOrmModuleOptions {
@@ -36,7 +36,7 @@ class ConfigService {
       synchronize: true,
 
       host: this.getValue('POSTGRES_HOST'),
-      port: parseInt(this.getValue('POSTGRES_PORT')),
+      port: Number(this.getValue('POSTGRES_PORT')),
       username: this.getValue('POSTGRES_USER'),
       password: this.getValue('POSTGRES_PASSWORD'),
       database: this.getValue('POSTGRES_DB'),
