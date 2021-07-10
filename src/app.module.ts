@@ -9,12 +9,14 @@ import { BoardsModule } from './boards/boards.module';
 import { HttpErrorFilter } from './errors/http-error.filter';
 import { TasksModule } from './tasks/tasks.module';
 import { LoggingInterceptor } from './logging/logging.interceptor';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     UsersModule,
     BoardsModule,
     TasksModule,
+    AuthModule,
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
   ],
   controllers: [AppController],
